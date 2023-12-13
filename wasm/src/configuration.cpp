@@ -31,11 +31,12 @@ IceServer::IceServer(string hostname_, uint16_t port_)
 
 IceServer::IceServer(string hostname_, string service_)
     : hostname(std::move(hostname_)), type(Type::Stun) {
-	try {
-		port = uint16_t(std::stoul(service_));
-	} catch (...) {
-		throw std::invalid_argument("Invalid ICE server port: " + service_);
-	}
+	// try {
+	// 	port = uint16_t(std::stoul(service_));
+	// } catch (...) {
+	// 	throw std::invalid_argument("Invalid ICE server port: " + service_);
+	// }
+	port = uint16_t(std::stoul(service_));
 }
 
 IceServer::IceServer(string hostname_, uint16_t port_, string username_, string password_,
@@ -47,11 +48,12 @@ IceServer::IceServer(string hostname_, string service_, string username_, string
                      RelayType relayType_)
     : hostname(std::move(hostname_)), type(Type::Turn), username(std::move(username_)),
       password(std::move(password_)), relayType(relayType_) {
-	try {
-		port = uint16_t(std::stoul(service_));
-	} catch (...) {
-		throw std::invalid_argument("Invalid ICE server port: " + service_);
-	}
+	// try {
+	// 	port = uint16_t(std::stoul(service_));
+	// } catch (...) {
+	// 	throw std::invalid_argument("Invalid ICE server port: " + service_);
+	// }
+	port = uint16_t(std::stoul(service_));
 }
 
 } // namespace rtc

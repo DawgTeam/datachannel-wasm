@@ -77,7 +77,8 @@ void WebSocket::open(const string &url) {
 
 	mId = wsCreateWebSocket(url.c_str());
 	if (!mId)
-		throw std::runtime_error("WebSocket not supported");
+		return;
+		//throw std::runtime_error("WebSocket not supported");
 
 	wsSetUserPointer(mId, this);
 	wsSetOpenCallback(mId, OpenCallback);

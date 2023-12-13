@@ -142,7 +142,8 @@ PeerConnection::PeerConnection(const Configuration &config) {
 	mId = rtcCreatePeerConnection(url_ptrs.data(), username_ptrs.data(), password_ptrs.data(),
 	                              config.iceServers.size());
 	if (!mId)
-		throw std::runtime_error("WebRTC not supported");
+		return;
+		//throw std::runtime_error("WebRTC not supported");
 
 	rtcSetUserPointer(mId, this);
 	rtcSetDataChannelCallback(mId, DataChannelCallback);
