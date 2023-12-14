@@ -157,6 +157,10 @@ PeerConnection::PeerConnection(const Configuration &config) {
 
 PeerConnection::~PeerConnection() { rtcDeletePeerConnection(mId); }
 
+void PeerConnection::close() {
+	// @TODO Do nothing for now, but should close the connection
+}
+
 PeerConnection::State PeerConnection::state() const { return mState; }
 
 PeerConnection::IceState PeerConnection::iceState() const { return mIceState; }
